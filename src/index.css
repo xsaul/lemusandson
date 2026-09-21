@@ -1,0 +1,5 @@
+@import "tailwindcss";
+
+.group:hover .gold-to-black-icon {
+  filter: brightness(0) !important;
+}
