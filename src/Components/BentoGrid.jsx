@@ -1,4 +1,20 @@
+import { useState, useEffect } from "react";
+
 const BentoGrid = ({ images }) => {
+
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+  console.log("isMobile:", isMobile);
+}, [isMobile]);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerHeight < 500);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   return (
     <div className="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[240px] md:auto-rows-[310px]">
       {images.slice(0, 21).map((img, index) => {
@@ -22,7 +38,10 @@ const BentoGrid = ({ images }) => {
               src={img.url} 
               alt={img.alt} 
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              style={img.objectPosition ? { objectPosition: img.objectPosition } : undefined} 
+              style={{
+  objectPosition:
+    (isMobile && img.mobileObjectPosition) || img.objectPosition || undefined,
+}}
               loading="lazy" 
             />
             {/* Elegant Minimalist Overlay */}

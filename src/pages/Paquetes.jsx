@@ -83,7 +83,7 @@ const Foto = ({ src, alt, className = '' }) => (
 const Paquetes = () => {
   return (
     <div className="bg-[#090808] min-h-screen pb-20">
-      <header className="relative w-full h-[80vh] flex items-center justify-center overflow-hidden mb-20">
+      <header className="relative w-full h-[80vh] [@media(max-height:500px)]:h-auto [@media(max-height:500px)]:min-h-[550px] [@media(max-height:500px)]:py-20 flex items-center justify-center overflow-hidden mb-20">
 
   {/* 1. Background Layer */}
   <div className="absolute inset-0 z-0">

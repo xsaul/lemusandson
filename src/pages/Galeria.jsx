@@ -80,7 +80,7 @@ const xvsFotos = [
   { url: XV_1, alt: 'XV años 1', title: 'Recuerdo en la iglesia', category: 'XV años' },
   { url: XV_2, alt: 'XV años 2', title: 'Recuerdo en la iglesia', category: 'XV años' },
   { url: XV_3, alt: 'XV años 3', title: 'Recuerdo en la iglesia', category: 'XV años' },
-  { url: XV_4, alt: 'XV años 4', title: 'Recuerdo en el salón', category: 'XV años', objectPosition: '80% center' },
+  { url: XV_4, alt: 'XV años 4', title: 'Recuerdo en el salón', category: 'XV años', objectPosition: '80% center', mobileObjectPosition: '90% center' },
   { url: XV_5, alt: 'XV años 5', title: 'Recuerdo en el salón', category: 'XV años', objectPosition: '43% center' },
   { url: XV_6, alt: 'XV años 6', title: 'Recuerdo en la iglesia', category: 'XV años' },
   { url: XV_7, alt: 'XV años 7', title: 'Recuerdo en el salón', category: 'XV años' },
@@ -102,8 +102,8 @@ const sesionesFotos = [
   { url: Sesion_8, alt: 'Sesiones 8', title: 'Sesión Día de Muertos', category: 'Sesiones' },
   { url: Sesion_9, alt: 'Sesiones 9', title: 'Sesión XV años', category: 'Sesiones' },
   { url: Sesion_10, alt: 'Sesiones 10', title: 'Sesión XV años', category: 'Sesiones', objectPosition: 'center 15%' },
-  { url: Sesion_11, alt: 'Sesiones 11', title: 'Sesión Mascotas', category: 'Sesiones' },
-  { url: Sesion_12, alt: 'Sesiones 12', title: 'Sesión Mascotas', category: 'Sesiones', objectPosition: '45% center' },
+  { url: Sesion_11, alt: 'Sesiones 11', title: 'Sesión Mascotas', category: 'Sesiones', mobileObjectPosition: "40% center", },
+  { url: Sesion_12, alt: 'Sesiones 12', title: 'Sesión Mascotas', category: 'Sesiones', objectPosition: '45% center', mobileObjectPosition: "30% center", },
   { url: Sesion_13, alt: 'Sesiones 13', title: 'Sesión XV años', category: 'Sesiones' },
   { url: Sesion_14, alt: 'Sesiones 14', title: 'Sesión XV años', category: 'Sesiones' },
   { url: Sesion_15, alt: 'Sesiones 15', title: 'Sesión XV años', category: 'Sesiones' },
@@ -152,7 +152,7 @@ const { hash } = useLocation();
   return (
     <div className="bg-[#090808] min-h-screen pb-20">
 
-<header className="relative w-full h-[80vh] flex items-center justify-center overflow-hidden mb-20">
+<header className="relative w-full h-[80vh] [@media(max-height:500px)]:h-auto [@media(max-height:500px)]:min-h-[550px] [@media(max-height:500px)]:py-20 flex items-center justify-center overflow-hidden mb-20">
   
   {/* 1. Background Layer */}
   <div className="absolute inset-0 z-0">
