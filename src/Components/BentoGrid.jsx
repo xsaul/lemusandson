@@ -2,18 +2,18 @@ import { useState, useEffect } from "react";
 
 const BentoGrid = ({ images }) => {
 
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobileLandscape, setIsMobileLandscape] = useState(false);
+const [isMobilePortrait, setIsMobilePortrait] = useState(false);
 
-  useEffect(() => {
-  console.log("isMobile:", isMobile);
-}, [isMobile]);
-
-  useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerHeight < 500);
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
+useEffect(() => {
+  const checkMobile = () => {
+    setIsMobileLandscape(window.innerHeight < 500);
+    setIsMobilePortrait(window.innerWidth < 768 && window.innerHeight >= 500);
+  };
+  checkMobile();
+  window.addEventListener("resize", checkMobile);
+  return () => window.removeEventListener("resize", checkMobile);
+}, []);
 
   return (
     <div className="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[240px] md:auto-rows-[310px]">
@@ -40,7 +40,10 @@ const BentoGrid = ({ images }) => {
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               style={{
   objectPosition:
-    (isMobile && img.mobileObjectPosition) || img.objectPosition || undefined,
+    (isMobileLandscape && img.mobileLandscapeObjectPosition) ||
+    (isMobilePortrait && img.mobilePortraitObjectPosition) ||
+    img.objectPosition ||
+    undefined,
 }}
               loading="lazy" 
             />
